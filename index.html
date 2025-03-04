@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>用户登录校验</title>
+  
+    <style>
+        html, body {
+			background-image: url('background.jpg'); /* 设置背景图片 */
+			background-size: cover; /* 让背景图片覆盖整个页面 */
+			background-position: center; /* 将背景图片居中 */
+			background-repeat: no-repeat; /* 防止背景图片重复 */
+			background-attachment: fixed; /* 背景图片固定，不随滚动条滚动 */
+            height: 100%; /* 确保父容器高度为100% */
+            margin: 0;
+            padding: 0;
+            display: flex; /* 使用Flexbox布局 */
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            background-color: #f0f0f0; /* 页面背景颜色 */
+        }
+			.rectangle {
+				width: 300px; /* 矩形的宽度 */
+				height: 300px; /* 矩形的高度 */
+				background-color: #f5f5f5; /* 浅灰色背景 */
+				border: 1px solid #ccc; /* 可选：添加边框 */
+				border-radius: 10px; /* 可选：添加圆角 */
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 可选：添加阴影 */
+				display: flex; /* 使用Flexbox布局 */
+				flex-direction: column; /* 垂直排列内容 */
+				justify-content: flex-start; /* 垂直对齐到顶部 */
+				align-items: center; /* 水平居中 */
+				padding: 20px; /* 添加内边距 */
+			}
+		.rectangle p {
+			margin: 0; /* 移除默认的外边距 */
+			padding: 0; /* 移除默认的内边距 */
+		}
+		.system {
+			font-size: 25px;
+			color: #000000;
+			margin-bottom: 10px; /* 添加底部间距 */
+		}
+
+		.user {
+			font-size: 16px;
+			color: #000000;
+			text-align: left;
+			width: 100%; /* 确保宽度占满整个矩形 */
+
+		}
+		.button {
+			background-color: #007BFF; /* 按钮背景颜色 */
+			color: white; /* 按钮文字颜色 */
+			border: none; /* 去掉边框 */
+			border-radius: 5px; /* 添加圆角 */
+			padding: 10px 20px; /* 添加内边距 */
+			cursor: pointer; /* 鼠标悬停时显示为手型 */
+			margin-bottom: 10px; /* 添加底部间距 */
+			font-size: 15px;
+		}		
+		.button-container {
+			display: flex; /* 使用Flexbox布局 */
+			justify-content: space-between; /* 按钮水平分布 */
+			width: 70%; /* 按钮容器宽度占满整个矩形 */
+		}
+    </style>
+
+
+</head>
+
+<body>
+	
+<div class="rectangle">
+        <p class="system">在线考试系统</p>
+		<p class="user"><br></p>
+        <p class="user">用户名</p>
+		<input class="user" id="input1"/>
+		<p class="user">密码</p>
+		<input class="user" id="input2" type="password"/>
+		<p class="user"><br></p>
+		<div class="button-container">
+			<button class="button" id="button">注册</button>
+			<button class="button" id="button2">登录</button>
+		</div>
+</div>
+
+    <script>
+		document.getElementById("button").onclick = function(){
+			var name = document.getElementById('input1').value;
+			var pw = document.getElementById('input2').value;
+			alert("注册成功！");
+			document.getElementById("button2").onclick = function(){
+				var username = document.getElementById('input1').value; 
+				var password = document.getElementById('input2').value;
+				if (username == name) {
+					if (password == pw) {
+						alert('登录成功');  
+					} else {
+						alert('密码输入错误');	 
+					}
+				} else {
+					alert('用户名输入错误');  
+				}
+			};
+		};
+	</script>	 
+</body>
+</html>
