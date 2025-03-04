@@ -43,13 +43,11 @@
 			color: #000000;
 			margin-bottom: 10px; /* 添加底部间距 */
 		}
-
 		.user {
 			font-size: 16px;
 			color: #000000;
 			text-align: left;
 			width: 100%; /* 确保宽度占满整个矩形 */
-
 		}
 		.button {
 			background-color: #007BFF; /* 按钮背景颜色 */
@@ -88,21 +86,27 @@
 </div>
 
     <script>
+		var usernames=new Array();
+		var passwords=new Array();
+		
 		document.getElementById("button").onclick = function(){
 			var name = document.getElementById('input1').value;
 			var pw = document.getElementById('input2').value;
+			usernames.push(name);
+			passwords.push(pw);
 			alert("注册成功！");
 			document.getElementById("button2").onclick = function(){
 				var username = document.getElementById('input1').value; 
 				var password = document.getElementById('input2').value;
-				if (username == name) {
-					if (password == pw) {
-						alert('登录成功');  
-					} else {
-						alert('密码输入错误');	 
+				
+				for (var i = 0; i < usernames.length; i++) {
+					if (username == usernames[i]){
+						if (password == passwords[i]) {
+							alert('登录成功');  
+						} else {
+								alert('密码输入错误');
+						}
 					}
-				} else {
-					alert('用户名输入错误');  
 				}
 			};
 		};
